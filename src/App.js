@@ -7,6 +7,7 @@ const Header = styled.header`
   justify-content: space-between;
   width: 80%;
   margin: auto;
+  margin-top: 20px;
 `;
 
 const LogoWrapper = styled.div`
@@ -18,15 +19,28 @@ const TitleWrapper = styled.div`
 `;
 
 const CartButton = styled.button`
-  display: block;
+  display: flex;
   border-radius: 17px;
   background-color: #ff694a;
   padding: 7px 17px;
-  padding-left: 40px;
   outline: 0;
   border: 0;
   position: relative;
-  text-align: left;
+  align-items: center;
+  justify-content: center;
+`;
+
+const CartPriceWrapper = styled.div`
+  margin-left: 10px;
+`;
+
+const CategoriesWrapper = styled.div`
+  display: flex;
+  /* margin-top: 30px; */
+`;
+const Categories = styled.button`
+  border-radius: 17px;
+  margin: 30px 30px;
 `;
 
 function App() {
@@ -35,8 +49,7 @@ function App() {
       <Header>
         <div>
           <LogoWrapper>
-            <Logo></Logo>
-
+            <Logo />
             <TitleWrapper>
               <div>REACT ROLLS</div>
               <div>самые вкусные роллы во вселенной</div>
@@ -45,9 +58,19 @@ function App() {
         </div>
 
         <CartButton>
-          <CartImage></CartImage> 1347
+          <CartImage />
+          <CartPriceWrapper>1347</CartPriceWrapper>
         </CartButton>
       </Header>
+
+      <CategoriesWrapper>
+        <Categories>Все</Categories>
+        <Categories>Запеченные</Categories>
+        <Categories>Вегетерианские</Categories>
+        <Categories>Классические</Categories>
+        <Categories>Темпура</Categories>
+        <Categories>Сеты</Categories>
+      </CategoriesWrapper>
     </div>
   );
 }
