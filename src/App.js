@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 import { CartImage } from './components/CartImage';
 import { Logo } from './components/Logo';
+import RollImg from './assets/img/roll1-removebg-preview.png';
+
+const MainWrapper = styled.div`
+  width: 80%;
+  margin: auto;
+`;
 
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin: auto;
+
   margin-top: 20px;
 `;
 
 const LogoWrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 const TitleWrapper = styled.div`
@@ -28,24 +34,65 @@ const CartButton = styled.button`
   position: relative;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 `;
 
-const CartPriceWrapper = styled.div`
+const CartPrice = styled.div`
   margin-left: 10px;
 `;
 
 const CategoriesWrapper = styled.div`
   display: flex;
-  /* margin-top: 30px; */
 `;
+
 const Categories = styled.button`
-  border-radius: 17px;
+  border-radius: 14px;
   margin: 30px 30px;
+  border: 0;
+  padding: 7px 17px;
+`;
+
+const AllRollsTitle = styled.div`
+  font-size: 25px;
+`;
+
+const CardsWrapper = styled.div`
+  display: flex;
+`;
+
+const CardRolls = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const ImageRolls = styled.img`
+  width: 260px;
+  border-radius: 16px;
+`;
+
+const TitleRolls = styled.span`
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+const RollsAmountWrapper = styled.div`
+  border-radius: 13px;
+  margin: 8px;
+  background-color: #f3f3f3;
+  display: flex;
+  align-items: center;
+`;
+
+const RollsAmount = styled.div`
+  padding: 8px 33px;
 `;
 
 function App() {
   return (
-    <div>
+    <MainWrapper>
       <Header>
         <div>
           <LogoWrapper>
@@ -59,7 +106,7 @@ function App() {
 
         <CartButton>
           <CartImage />
-          <CartPriceWrapper>1347</CartPriceWrapper>
+          <CartPrice>1347</CartPrice>
         </CartButton>
       </Header>
 
@@ -71,7 +118,20 @@ function App() {
         <Categories>Темпура</Categories>
         <Categories>Сеты</Categories>
       </CategoriesWrapper>
-    </div>
+
+      <AllRollsTitle>Все роллы</AllRollsTitle>
+
+      <CardsWrapper>
+        <CardRolls>
+          <ImageRolls src={RollImg} />
+          <TitleRolls>Ролл Филадельфия</TitleRolls>
+          <RollsAmountWrapper>
+            <RollsAmount>6 шт</RollsAmount>
+            <RollsAmount>8 шт</RollsAmount>
+          </RollsAmountWrapper>
+        </CardRolls>
+      </CardsWrapper>
+    </MainWrapper>
   );
 }
 
