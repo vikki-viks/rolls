@@ -1,0 +1,94 @@
+{
+  "rolls": [
+    {
+      "id": 0,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123433379-13fc0a80-d5d4-11eb-9bae-15bf66339eee.png",
+      "name": "Ролл Филадельфия",
+      "amount": [6, 8],
+      "price": 449,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123433801-81a83680-d5d4-11eb-85f3-f0933ac3c6be.pngjpg",
+      "name": "Ролл Филадельфия в угре",
+      "amount": [6, 8],
+      "price": 549,
+      "category": 1,
+      "rating": 6
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123435850-b2896b00-d5d6-11eb-850e-49360e889e5c.png",
+      "name": "Заченый ролл Нежный краб",
+      "sizes": [6, 8],
+      "price": 499,
+      "category": 1,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123436166-072ce600-d5d7-11eb-91f5-bccd1c7306c2.png",
+      "name": "Запеченый ролл с курицей терьяки",
+      "sizes": [6, 8],
+      "price": 379,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+      "name": "Чизбургер-пицца",
+      "sizes": [6, 8],
+      "price": 415,
+      "category": 3,
+      "rating": 8
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123436360-380d1b00-d5d7-11eb-83ca-b92d9f2034fb.png",
+      "name": "Запеченый ролл Филадельфия с сырным соусом",
+      "sizes": [6, 8],
+      "price": 549,
+      "category": 2,
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123436574-70acf480-d5d7-11eb-8358-caa6e3c3a418.png",
+      "name": "Темпура ролл с крабом и гребешком",
+      "sizes": [6, 8],
+      "price": 519,
+      "category": 1,
+      "rating": 9
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123436754-a05bfc80-d5d7-11eb-93a7-f84bfeb592a2.png",
+      "name": "Темпура ролл с чукой",
+      "sizes": [6, 8],
+      "price": 379,
+      "category": 4,
+      "rating": 10
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123436989-de592080-d5d7-11eb-93c7-efc26e0dd76a.png",
+      "name": "Набор «Вкусный»",
+      "sizes": [6, 8],
+      "price": 1249,
+      "category": 5,
+      "rating": 10
+    },
+    {
+      "id": 9,
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123437151-0a74a180-d5d8-11eb-8302-6ed486aaff36.png",
+      "name": "Набор «Запеченный № 3»",
+      "sizes": [6, 8],
+      "price": 2299,
+      "category": 5,
+      "rating": 7
+    }
+  ]
+}
