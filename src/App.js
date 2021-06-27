@@ -37,18 +37,9 @@ function App() {
       <AllRollsTitle>Все роллы</AllRollsTitle>
 
       <CardsWrapper>
-        <CardRolls
-          roll={{
-            id: 0,
-            imageUrl:
-              'https://user-images.githubusercontent.com/77355397/123433379-13fc0a80-d5d4-11eb-9bae-15bf66339eee.png',
-            name: 'Ролл Филадельфия',
-            amount: [6, 8],
-            price: 449,
-            category: 0,
-            rating: 4,
-          }}
-        />
+        {data.map((roll) => {
+          return <CardRolls roll={roll} />;
+        })}
       </CardsWrapper>
     </MainWrapper>
   );

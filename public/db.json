@@ -11,7 +11,7 @@
     },
     {
       "id": 1,
-      "imageUrl": "https://user-images.githubusercontent.com/77355397/123433801-81a83680-d5d4-11eb-85f3-f0933ac3c6be.pngjpg",
+      "imageUrl": "https://user-images.githubusercontent.com/77355397/123433801-81a83680-d5d4-11eb-85f3-f0933ac3c6be.png",
       "name": "Ролл Филадельфия в угре",
       "amount": [6, 8],
       "price": 549,
@@ -36,15 +36,7 @@
       "category": 2,
       "rating": 2
     },
-    {
-      "id": 4,
-      "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
-      "name": "Чизбургер-пицца",
-      "amount": [6, 8],
-      "price": 415,
-      "category": 3,
-      "rating": 8
-    },
+
     {
       "id": 5,
       "imageUrl": "https://user-images.githubusercontent.com/77355397/123436360-380d1b00-d5d7-11eb-83ca-b92d9f2034fb.png",
@@ -77,6 +69,7 @@
       "imageUrl": "https://user-images.githubusercontent.com/77355397/123436989-de592080-d5d7-11eb-93c7-efc26e0dd76a.png",
       "name": "Набор «Вкусный»",
       "price": 1249,
+      "amount": [6, 8],
       "category": 5,
       "rating": 10
     },
@@ -85,6 +78,7 @@
       "imageUrl": "https://user-images.githubusercontent.com/77355397/123437151-0a74a180-d5d8-11eb-8302-6ed486aaff36.png",
       "name": "Набор «Запеченный № 3»",
       "price": 2299,
+      "amount": [6, 8],
       "category": 5,
       "rating": 7
     }
