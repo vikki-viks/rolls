@@ -42,16 +42,16 @@ const RollsCart = styled.button`
   color: #ff694a;
 `;
 
-export function CardRolls() {
+export function CardRolls({ roll }) {
   return (
     <CardRollsWrapper>
-      <ImageRolls src="https://user-images.githubusercontent.com/77355397/123433379-13fc0a80-d5d4-11eb-9bae-15bf66339eee.png" />
-      <TitleRolls>Ролл Филадельфия</TitleRolls>
+      <ImageRolls src={roll.imageUrl} />
+      <TitleRolls>{roll.name}</TitleRolls>
       <RollsAmountWrapper>
-        <RollsAmount>6 шт</RollsAmount>
-        <RollsAmount>8 шт</RollsAmount>
+        <RollsAmount>{roll.amount[0]} шт</RollsAmount>
+        <RollsAmount>{roll.amount[1]} шт</RollsAmount>
       </RollsAmountWrapper>
-      <RollsPrice>от 395 р</RollsPrice>
+      <RollsPrice>{roll.price} р </RollsPrice>
       <RollsCart>В корзину</RollsCart>
     </CardRollsWrapper>
   );
