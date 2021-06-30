@@ -9,17 +9,25 @@ const Categories = styled.button`
   margin: 30px 30px;
   border: 0;
   padding: 7px 17px;
+  outline: 0;
+  cursor: pointer;
 `;
 
-export function AllCategories() {
+export function AllCategories({ setSelectedCategoryId }) {
   return (
     <CategoriesWrapper>
-      <Categories>Все</Categories>
-      <Categories>Запеченные</Categories>
-      <Categories>Вегетерианские</Categories>
-      <Categories>Классические</Categories>
-      <Categories>Темпура</Categories>
-      <Categories>Сеты</Categories>
+      <Categories onClick={() => setSelectedCategoryId(0)}>Все</Categories>
+      <Categories onClick={() => setSelectedCategoryId(1)}>
+        Запеченные
+      </Categories>
+      <Categories onClick={() => setSelectedCategoryId(2)}>
+        Вегетерианские
+      </Categories>
+      <Categories onClick={() => setSelectedCategoryId(3)}>
+        Классические
+      </Categories>
+      <Categories onClick={() => setSelectedCategoryId(4)}>Темпура</Categories>
+      <Categories onClick={() => setSelectedCategoryId(5)}>Сеты</Categories>
     </CategoriesWrapper>
   );
 }

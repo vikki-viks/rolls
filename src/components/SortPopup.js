@@ -10,6 +10,8 @@ const SortButton = styled.button`
   border: 0;
   background-color: white;
   font-size: 16px;
+  outline: 0;
+  cursor: pointer;
 `;
 
 const Popup = styled.div`
@@ -34,6 +36,8 @@ const PopupButton = styled.button`
   text-align: left;
   padding: 8px 2px;
   padding-left: 16px;
+  outline: 0;
+  cursor: pointer;
 `;
 
 export function SortPopup() {

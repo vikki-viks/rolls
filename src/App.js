@@ -11,6 +11,7 @@ import React from 'react';
 const MainWrapper = styled.div`
   width: 80%;
   margin: auto;
+  margin-bottom: 40px;
 `;
 
 const AllRollsTitle = styled.div`
@@ -30,6 +31,7 @@ const CategoriesWrapper = styled.div`
 
 function App() {
   const [data, setData] = React.useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
 
   React.useEffect(() => {
     axios
@@ -40,16 +42,21 @@ function App() {
   return (
     <MainWrapper>
       <Header />
-      <AllCategories />
+      <AllCategories setSelectedCategoryId={setSelectedCategoryId} />
       <CategoriesWrapper>
         <AllRollsTitle>Все роллы</AllRollsTitle>
         <SortPopup />
       </CategoriesWrapper>
 
       <CardsWrapper>
-        {data.map((roll) => {
-          return <CardRolls roll={roll} />;
-        })}
+        {data
+          .filter((roll) => {
+            if (selectedCategoryId === 0) return true;
+            return roll.categories.includes(selectedCategoryId);
+          })
+          .map((roll) => {
+            return <CardRolls roll={roll} />;
+          })}
       </CardsWrapper>
     </MainWrapper>
   );

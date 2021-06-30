@@ -31,6 +31,8 @@ const CartButton = styled.button`
   color: white;
   font-size: 18px;
   font-weight: bold;
+  outline: 0;
+  cursor: pointer;
 `;
 
 const CartPrice = styled.div`

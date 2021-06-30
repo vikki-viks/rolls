@@ -4,7 +4,7 @@ const CardRollsWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 33.33%;
+  width: 25%;
 `;
 
 const ImageRolls = styled.img`
@@ -16,6 +16,7 @@ const TitleRolls = styled.span`
   font-size: 18px;
   font-weight: bold;
   text-align: center;
+  height: 50px;
 `;
 
 const RollsAmountWrapper = styled.div`
@@ -24,15 +25,19 @@ const RollsAmountWrapper = styled.div`
   background-color: #f3f3f3;
   display: flex;
   align-items: center;
+  height: 30px;
 `;
 
 const RollsAmount = styled.div`
   padding: 8px 33px;
   font-size: 13px;
+  outline: 0;
+  cursor: pointer;
 `;
 
 const RollsPrice = styled.div`
   margin: 10px;
+  height: 16px;
 `;
 
 const RollsCart = styled.button`
@@ -41,6 +46,9 @@ const RollsCart = styled.button`
   border: 0;
   margin-top: 8px;
   color: #ff694a;
+  cursor: pointer;
+  outline: 0;
+  height: 36px;
 `;
 
 export function CardRolls({ roll }) {
