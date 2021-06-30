@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import RollImg from '../assets/img/roll1-removebg-preview.png';
 
 const CardRollsWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 33.33%;
 `;
 
 const ImageRolls = styled.img`
@@ -15,6 +15,7 @@ const ImageRolls = styled.img`
 const TitleRolls = styled.span`
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
 `;
 
 const RollsAmountWrapper = styled.div`
