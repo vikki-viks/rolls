@@ -34,7 +34,7 @@ function App() {
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
   const [selectedSortPopular, setSelectedSortPopular] = React.useState(true);
   const [selectedSortPrice, setSelectedSortPrice] = React.useState(false);
-  const [selectedSortAlphabet, setSelectedSortAlphabet] = React.useState(false);
+  const [, setSelectedSortAlphabet] = React.useState(false);
 
   React.useEffect(() => {
     axios
