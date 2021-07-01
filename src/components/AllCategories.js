@@ -11,23 +11,51 @@ const Categories = styled.button`
   padding: 7px 17px;
   outline: 0;
   cursor: pointer;
+  &.selected {
+    background-color: #ff694a;
+    color: white;
+  }
 `;
 
-export function AllCategories({ setSelectedCategoryId }) {
+export function AllCategories({ selectedCategoryId, setSelectedCategoryId }) {
   return (
     <CategoriesWrapper>
-      <Categories onClick={() => setSelectedCategoryId(0)}>Все</Categories>
-      <Categories onClick={() => setSelectedCategoryId(1)}>
+      <Categories
+        className={selectedCategoryId === 0 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(0)}
+      >
+        Все
+      </Categories>
+      <Categories
+        className={selectedCategoryId === 1 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(1)}
+      >
         Запеченные
       </Categories>
-      <Categories onClick={() => setSelectedCategoryId(2)}>
+      <Categories
+        className={selectedCategoryId === 2 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(2)}
+      >
         Вегетерианские
       </Categories>
-      <Categories onClick={() => setSelectedCategoryId(3)}>
+      <Categories
+        className={selectedCategoryId === 3 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(3)}
+      >
         Классические
       </Categories>
-      <Categories onClick={() => setSelectedCategoryId(4)}>Темпура</Categories>
-      <Categories onClick={() => setSelectedCategoryId(5)}>Сеты</Categories>
+      <Categories
+        className={selectedCategoryId === 4 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(4)}
+      >
+        Темпура
+      </Categories>
+      <Categories
+        className={selectedCategoryId === 5 ? 'selected' : ''}
+        onClick={() => setSelectedCategoryId(5)}
+      >
+        Сеты
+      </Categories>
     </CategoriesWrapper>
   );
 }

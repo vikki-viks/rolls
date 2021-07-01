@@ -16,7 +16,7 @@
       "amount": [6, 8],
       "price": 549,
       "categories": [3],
-      "rating": 6
+      "rating": 3
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
       "amount": [6, 8],
       "price": 499,
       "categories": [1],
-      "rating": 4
+      "rating": 1
     },
     {
       "id": 3,
@@ -53,7 +53,7 @@
       "amount": [6, 8],
       "price": 519,
       "categories": [4],
-      "rating": 9
+      "rating": 7
     },
     {
       "id": 7,
@@ -62,7 +62,7 @@
       "amount": [6, 8],
       "price": 379,
       "categories": [2, 4],
-      "rating": 10
+      "rating": 5
     },
     {
       "id": 8,
@@ -71,7 +71,7 @@
       "price": 1249,
       "amount": [6, 8],
       "categories": [1, 5],
-      "rating": 10
+      "rating": 6
     },
     {
       "id": 9,
@@ -80,7 +80,7 @@
       "price": 2299,
       "amount": [6, 8],
       "categories": [1, 5],
-      "rating": 7
+      "rating": 8
     }
   ]
 }

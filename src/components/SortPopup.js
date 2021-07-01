@@ -1,3 +1,4 @@
+import { findAllByDisplayValue } from '@testing-library/dom';
 import React from 'react';
 import styled from 'styled-components';
 import { Triangle } from './Triangle';
@@ -40,8 +41,30 @@ const PopupButton = styled.button`
   cursor: pointer;
 `;
 
-export function SortPopup() {
+export function SortPopup({
+  setSelectedSortPopular,
+  setSelectedSortPrice,
+  setSelectedSortAlphabet,
+}) {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  function onClickPopular() {
+    setSelectedSortPopular(true);
+    setSelectedSortPrice(false);
+    setSelectedSortAlphabet(false);
+  }
+
+  function onClickPrice() {
+    setSelectedSortPopular(false);
+    setSelectedSortPrice(true);
+    setSelectedSortAlphabet(false);
+  }
+
+  function onClickAlphabet() {
+    setSelectedSortPopular(false);
+    setSelectedSortPrice(false);
+    setSelectedSortAlphabet(true);
+  }
 
   return (
     <SortPopupWrapper>
@@ -51,9 +74,11 @@ export function SortPopup() {
       </SortButton>
       {isOpen && (
         <Popup>
-          <PopupButton> полулярности</PopupButton>
-          <PopupButton> цене</PopupButton>
-          <PopupButton> алфавиту</PopupButton>
+          <PopupButton onClick={() => onClickPopular()}>
+            полулярности
+          </PopupButton>
+          <PopupButton onClick={() => onClickPrice()}>цене</PopupButton>
+          <PopupButton onClick={() => onClickAlphabet()}>алфавиту</PopupButton>
         </Popup>
       )}
     </SortPopupWrapper>

@@ -32,20 +32,30 @@ const CategoriesWrapper = styled.div`
 function App() {
   const [data, setData] = React.useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
+  const [selectedSortPopular, setSelectedSortPopular] = React.useState(true);
+  const [selectedSortPrice, setSelectedSortPrice] = React.useState(false);
+  const [selectedSortAlphabet, setSelectedSortAlphabet] = React.useState(false);
 
   React.useEffect(() => {
     axios
-      .get('http://localhost:3000/db.json')
+      .get('http://localhost:3001/db.json')
       .then(({ data }) => setData(data.rolls));
   }, []);
 
   return (
     <MainWrapper>
       <Header />
-      <AllCategories setSelectedCategoryId={setSelectedCategoryId} />
+      <AllCategories
+        selectedCategoryId={selectedCategoryId}
+        setSelectedCategoryId={setSelectedCategoryId}
+      />
       <CategoriesWrapper>
         <AllRollsTitle>Все роллы</AllRollsTitle>
-        <SortPopup />
+        <SortPopup
+          setSelectedSortPopular={setSelectedSortPopular}
+          setSelectedSortPrice={setSelectedSortPrice}
+          setSelectedSortAlphabet={setSelectedSortAlphabet}
+        />
       </CategoriesWrapper>
 
       <CardsWrapper>
@@ -53,6 +63,33 @@ function App() {
           .filter((roll) => {
             if (selectedCategoryId === 0) return true;
             return roll.categories.includes(selectedCategoryId);
+          })
+          .sort((roll, secondRoll) => {
+            if (selectedSortPopular) {
+              if (roll.rating > secondRoll.rating) {
+                return 1;
+              }
+              if (roll.rating < secondRoll.rating) {
+                return -1;
+              }
+              return 0;
+            } else if (selectedSortPrice) {
+              if (roll.price > secondRoll.price) {
+                return 1;
+              }
+              if (roll.price < secondRoll.price) {
+                return -1;
+              }
+              return 0;
+            } else {
+              if (roll.name > secondRoll.name) {
+                return 1;
+              }
+              if (roll.name < secondRoll.name) {
+                return -1;
+              }
+              return 0;
+            }
           })
           .map((roll) => {
             return <CardRolls roll={roll} />;
