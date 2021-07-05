@@ -5,7 +5,7 @@ import { AllCategories } from './components/AllCategories';
 import { CardRolls } from './components/CardRoll';
 import { Header } from './components/Header';
 import { SortPopup } from './components/SortPopup';
-
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 
 const MainWrapper = styled.div`
@@ -32,9 +32,8 @@ const CategoriesWrapper = styled.div`
 function App() {
   const [data, setData] = React.useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
-  const [selectedSortPopular, setSelectedSortPopular] = React.useState(true);
-  const [selectedSortPrice, setSelectedSortPrice] = React.useState(false);
-  const [, setSelectedSortAlphabet] = React.useState(false);
+  const [selectedSortStatus, setSelectedSortStatus] = React.useState('rating');
+  const [rollsId, setRollsId] = React.useState([8, 7]);
 
   React.useEffect(() => {
     axios
@@ -43,59 +42,42 @@ function App() {
   }, []);
 
   return (
-    <MainWrapper>
-      <Header />
-      <AllCategories
-        selectedCategoryId={selectedCategoryId}
-        setSelectedCategoryId={setSelectedCategoryId}
-      />
-      <CategoriesWrapper>
-        <AllRollsTitle>Все роллы</AllRollsTitle>
-        <SortPopup
-          setSelectedSortPopular={setSelectedSortPopular}
-          setSelectedSortPrice={setSelectedSortPrice}
-          setSelectedSortAlphabet={setSelectedSortAlphabet}
+    <Router>
+      <MainWrapper>
+        <Header rollsId={rollsId} />
+        <AllCategories
+          selectedCategoryId={selectedCategoryId}
+          setSelectedCategoryId={setSelectedCategoryId}
         />
-      </CategoriesWrapper>
+        <CategoriesWrapper>
+          <AllRollsTitle>Все роллы</AllRollsTitle>
+          <SortPopup
+            selectedSortStatus={selectedSortStatus}
+            setSelectedSortStatus={setSelectedSortStatus}
+          />
+        </CategoriesWrapper>
 
-      <CardsWrapper>
-        {data
-          .filter((roll) => {
-            if (selectedCategoryId === 0) return true;
-            return roll.categories.includes(selectedCategoryId);
-          })
-          .sort((roll, secondRoll) => {
-            if (selectedSortPopular) {
-              if (roll.rating > secondRoll.rating) {
+        <CardsWrapper>
+          {data
+            .filter((roll) => {
+              if (selectedCategoryId === 0) return true;
+              return roll.categories.includes(selectedCategoryId);
+            })
+            .sort((roll, secondRoll) => {
+              if (roll[selectedSortStatus] > secondRoll[selectedSortStatus]) {
                 return 1;
               }
-              if (roll.rating < secondRoll.rating) {
+              if (roll[selectedSortStatus] < secondRoll[selectedSortStatus]) {
                 return -1;
               }
               return 0;
-            } else if (selectedSortPrice) {
-              if (roll.price > secondRoll.price) {
-                return 1;
-              }
-              if (roll.price < secondRoll.price) {
-                return -1;
-              }
-              return 0;
-            } else {
-              if (roll.name > secondRoll.name) {
-                return 1;
-              }
-              if (roll.name < secondRoll.name) {
-                return -1;
-              }
-              return 0;
-            }
-          })
-          .map((roll) => {
-            return <CardRolls roll={roll} />;
-          })}
-      </CardsWrapper>
-    </MainWrapper>
+            })
+            .map((roll) => {
+              return <CardRolls setRollsId={setRollsId} roll={roll} />;
+            })}
+        </CardsWrapper>
+      </MainWrapper>
+    </Router>
   );
 }
 

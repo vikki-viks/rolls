@@ -51,7 +51,7 @@ const RollsCart = styled.button`
   height: 36px;
 `;
 
-export function CardRolls({ roll }) {
+export function CardRolls({ roll, setRollsId }) {
   return (
     <CardRollsWrapper>
       <ImageRolls src={roll.imageUrl} />
@@ -61,7 +61,9 @@ export function CardRolls({ roll }) {
         <RollsAmount>{roll.amount[1]} шт</RollsAmount>
       </RollsAmountWrapper>
       <RollsPrice>{roll.price} р </RollsPrice>
-      <RollsCart>В корзину</RollsCart>
+      <RollsCart onClick={() => setRollsId((state) => [...state, roll.id])}>
+        В корзину
+      </RollsCart>
     </CardRollsWrapper>
   );
 }

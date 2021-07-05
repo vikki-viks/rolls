@@ -1,4 +1,4 @@
-import { CartImage } from './CartImage';
+import { Cart } from '../pages/Cart';
 import { Logo } from './Logo';
 import styled from 'styled-components';
 
@@ -18,28 +18,7 @@ const TitleWrapper = styled.div`
   margin-left: 16px;
 `;
 
-const CartButton = styled.button`
-  display: flex;
-  border-radius: 17px;
-  background-color: #ff694a;
-  padding: 7px 17px;
-  outline: 0;
-  border: 0;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  outline: 0;
-  cursor: pointer;
-`;
-
-const CartPrice = styled.div`
-  margin-left: 10px;
-`;
-
-export function Header() {
+export function Header({ rollsId }) {
   return (
     <HeaderWrapper>
       <div>
@@ -51,11 +30,7 @@ export function Header() {
           </TitleWrapper>
         </LogoWrapper>
       </div>
-
-      <CartButton>
-        <CartImage />
-        <CartPrice>1347</CartPrice>
-      </CartButton>
+      <Cart rollsId={rollsId}></Cart>
     </HeaderWrapper>
   );
 }

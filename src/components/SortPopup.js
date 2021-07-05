@@ -40,36 +40,36 @@ const PopupButton = styled.button`
   cursor: pointer;
 `;
 
-export function SortPopup({
-  setSelectedSortPopular,
-  setSelectedSortPrice,
-  setSelectedSortAlphabet,
-}) {
+export function SortPopup({ selectedSortStatus, setSelectedSortStatus }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  function translate() {
+    if (selectedSortStatus === 'rating') {
+      return 'популярности';
+    } else if (selectedSortStatus === 'price') {
+      return 'цене';
+    } else {
+      return 'алфавиту';
+    }
+  }
+
   function onClickPopular() {
-    setSelectedSortPopular(true);
-    setSelectedSortPrice(false);
-    setSelectedSortAlphabet(false);
+    setSelectedSortStatus('rating');
   }
 
   function onClickPrice() {
-    setSelectedSortPopular(false);
-    setSelectedSortPrice(true);
-    setSelectedSortAlphabet(false);
+    setSelectedSortStatus('price');
   }
 
   function onClickAlphabet() {
-    setSelectedSortPopular(false);
-    setSelectedSortPrice(false);
-    setSelectedSortAlphabet(true);
+    setSelectedSortStatus('name');
   }
 
   return (
     <SortPopupWrapper>
       <Triangle isOpen={isOpen} />
       <SortButton onClick={() => setIsOpen(!isOpen)}>
-        Сортировать по полулярности
+        Сортировать по {translate()}
       </SortButton>
       {isOpen && (
         <Popup>
