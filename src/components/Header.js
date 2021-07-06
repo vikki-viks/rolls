@@ -1,6 +1,7 @@
-import { Cart } from '../pages/Cart';
 import { Logo } from './Logo';
 import styled from 'styled-components';
+import { CartButton } from './CartButton';
+import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -16,21 +17,25 @@ const LogoWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   margin-left: 16px;
+  color: black;
+  text-decoration: none;
 `;
 
-export function Header({ rollsId }) {
+export function Header({ rollsId, data }) {
   return (
     <HeaderWrapper>
       <div>
-        <LogoWrapper>
-          <Logo />
-          <TitleWrapper>
-            <div>REACT ROLLS</div>
-            <div>самые вкусные роллы во вселенной</div>
-          </TitleWrapper>
-        </LogoWrapper>
+        <Link to="/" component="a">
+          <LogoWrapper>
+            <Logo />
+            <TitleWrapper>
+              <div>REACT ROLLS</div>
+              <div>самые вкусные роллы во вселенной</div>
+            </TitleWrapper>
+          </LogoWrapper>
+        </Link>
       </div>
-      <Cart rollsId={rollsId}></Cart>
+      <CartButton rollsId={rollsId} data={data}></CartButton>
     </HeaderWrapper>
   );
 }
