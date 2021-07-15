@@ -6,12 +6,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React from 'react';
 import { Home } from './pages/Home';
 import { Cart } from './pages/Cart';
+import Modal from 'react-modal';
 
 const MainWrapper = styled.div`
   width: 80%;
   margin: auto;
   margin-bottom: 40px;
 `;
+
+Modal.setAppElement('#root');
 
 function App() {
   const [data, setData] = React.useState([]);
