@@ -77,18 +77,25 @@ export function CardRolls({ roll, setRollsId }) {
 
   function addToCart() {
     setRollsId((state) => [...state, roll.id]);
-    setIsOpen(true);
+    openModal();
+    setTimeout(closeModal, 3000);
   }
+
   return (
     <CardRollsWrapper>
       <ImageRolls src={roll.imageUrl} />
+
       <TitleRolls>{roll.name}</TitleRolls>
+
       <RollsAmountWrapper>
         <RollsAmount>{roll.amount[0]} шт</RollsAmount>
         <RollsAmount>{roll.amount[1]} шт</RollsAmount>
       </RollsAmountWrapper>
+
       <RollsPrice>{roll.price} р </RollsPrice>
-      <RollsCart onClick={() => addToCart()}>В корзину</RollsCart>
+
+      <RollsCart onClick={addToCart}>В корзину</RollsCart>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
