@@ -7,7 +7,8 @@
       "amount": [6, 8],
       "price": 449,
       "categories": [3],
-      "rating": 4
+      "rating": 4,
+      "increased": 560
     },
     {
       "id": 1,
@@ -16,7 +17,8 @@
       "amount": [6, 8],
       "price": 549,
       "categories": [3],
-      "rating": 3
+      "rating": 3,
+      "increased": 670
     },
     {
       "id": 2,
@@ -25,7 +27,8 @@
       "amount": [6, 8],
       "price": 499,
       "categories": [1],
-      "rating": 1
+      "rating": 1,
+      "increased": 587
     },
     {
       "id": 3,
@@ -34,7 +37,8 @@
       "amount": [6, 8],
       "price": 379,
       "categories": [1],
-      "rating": 2
+      "rating": 2,
+      "increased": 487
     },
 
     {
@@ -44,7 +48,8 @@
       "amount": [6, 8],
       "price": 549,
       "categories": [1],
-      "rating": 2
+      "rating": 2,
+      "increased": 654
     },
     {
       "id": 6,
@@ -53,7 +58,8 @@
       "amount": [6, 8],
       "price": 519,
       "categories": [4],
-      "rating": 7
+      "rating": 7,
+      "increased": 598
     },
     {
       "id": 7,
@@ -62,14 +68,14 @@
       "amount": [6, 8],
       "price": 379,
       "categories": [2, 4],
-      "rating": 5
+      "rating": 5,
+      "increased": 430
     },
     {
       "id": 8,
       "imageUrl": "https://user-images.githubusercontent.com/77355397/123436989-de592080-d5d7-11eb-93c7-efc26e0dd76a.png",
       "name": "Набор «Вкусный»",
       "price": 1249,
-      "amount": [6, 8],
       "categories": [1, 5],
       "rating": 6
     },
@@ -78,7 +84,6 @@
       "imageUrl": "https://user-images.githubusercontent.com/77355397/123437151-0a74a180-d5d8-11eb-8302-6ed486aaff36.png",
       "name": "Набор «Запеченный № 3»",
       "price": 2299,
-      "amount": [6, 8],
       "categories": [1, 5],
       "rating": 8
     }

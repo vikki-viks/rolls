@@ -1,10 +1,10 @@
-export function CartImage() {
+export function CartImage({ isBlack }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 18 20"
       width="18px"
-      fill="white"
+      fill={isBlack ? 'black' : 'white'}
       fontWeight="bold"
     >
       <path
