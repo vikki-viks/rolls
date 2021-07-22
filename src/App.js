@@ -34,7 +34,7 @@ function App() {
         <Header rollsId={rollsId} data={data} />
         <Switch>
           <Route path="/cart">
-            <Cart rollsId={rollsId}></Cart>
+            <Cart rollsId={rollsId} data={data}></Cart>
           </Route>
           <Route path="/">
             <Home

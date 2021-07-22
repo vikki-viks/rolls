@@ -46,7 +46,7 @@ const ImageCancel = styled.img``;
 
 const ClearCartTitle = styled.h2``;
 
-export function Cart({ rollsId }) {
+export function Cart({ rollsId, data }) {
   const uniqueRollIdsWithAmount = rollsId
     .map((id, _, arr) => {
       const occ = arr.filter((arrId) => arrId === id).length;
@@ -68,16 +68,24 @@ export function Cart({ rollsId }) {
           <ClearCartTitle>Очистить корзину</ClearCartTitle>
         </ClearCartWrapper>
       </Line>
-      <Line>
-        <RollName>Ролл филадельфия</RollName>
-        <CounterRollsWrapper>
-          <Counter>+</Counter>
-          <AmountCounter>709</AmountCounter>
-          <Counter>-</Counter>
-        </CounterRollsWrapper>
-        <PriceRoll>780</PriceRoll>
-        <ImageCancel src={CloseButton} alt={'close button'}></ImageCancel>
-      </Line>
+
+      {uniqueRollIdsWithAmount.map((roll) => {
+        console.log(roll); // am + id
+        // data [{id: ?, ....}, ...]
+        const findRoll = data.find((r) => r.id === roll.id);
+        return (
+          <Line>
+            <RollName>{findRoll.name}</RollName>
+            <CounterRollsWrapper>
+              <Counter>-</Counter>
+              <AmountCounter>{roll.amount}</AmountCounter>
+              <Counter>+</Counter>
+            </CounterRollsWrapper>
+            <PriceRoll>{findRoll.price}</PriceRoll>
+            <ImageCancel src={CloseButton} alt={'close button'}></ImageCancel>
+          </Line>
+        );
+      })}
     </>
   );
 }
