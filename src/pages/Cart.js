@@ -3,6 +3,22 @@ import { CartImage } from '../components/CartImage';
 import { TrashImage } from '../components/TrashImage';
 import CloseButton from '../assets/img/Group 36.png';
 
+const AllWrapper = styled.div`
+  /* width: 50%;
+  height: 50%;
+  position: fixed; */
+  /* top: 30%; */
+  /* left: 50px; */
+  display: flex;
+  min-height: 70vh;
+  align-items: space-between;
+  justify-content: center;
+  flex-direction: column;
+
+  /* overflow: auto; */
+  /* flex-wrap: wrap; */
+`;
+
 const CartTitleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -58,34 +74,36 @@ export function Cart({ rollsId, data }) {
 
   return (
     <>
-      <Line>
-        <CartTitleWrapper>
-          <CartImage isBlack></CartImage>
-          <CartTitle>Корзина</CartTitle>
-        </CartTitleWrapper>
-        <ClearCartWrapper>
-          <TrashImage></TrashImage>
-          <ClearCartTitle>Очистить корзину</ClearCartTitle>
-        </ClearCartWrapper>
-      </Line>
+      <AllWrapper>
+        <Line>
+          <CartTitleWrapper>
+            <CartImage isBlack></CartImage>
+            <CartTitle>Корзина</CartTitle>
+          </CartTitleWrapper>
+          <ClearCartWrapper>
+            <TrashImage></TrashImage>
+            <ClearCartTitle>Очистить корзину</ClearCartTitle>
+          </ClearCartWrapper>
+        </Line>
 
-      {uniqueRollIdsWithAmount.map((roll) => {
-        console.log(roll); // am + id
-        // data [{id: ?, ....}, ...]
-        const findRoll = data.find((r) => r.id === roll.id);
-        return (
-          <Line>
-            <RollName>{findRoll.name}</RollName>
-            <CounterRollsWrapper>
-              <Counter>-</Counter>
-              <AmountCounter>{roll.amount}</AmountCounter>
-              <Counter>+</Counter>
-            </CounterRollsWrapper>
-            <PriceRoll>{findRoll.price}</PriceRoll>
-            <ImageCancel src={CloseButton} alt={'close button'}></ImageCancel>
-          </Line>
-        );
-      })}
+        {uniqueRollIdsWithAmount.map((roll) => {
+          console.log(roll); // am + id
+          // data [{id: ?, ....}, ...]
+          const findRoll = data.find((r) => r.id === roll.id);
+          return (
+            <Line>
+              <RollName>{findRoll.name}</RollName>
+              <CounterRollsWrapper>
+                <Counter>-</Counter>
+                <AmountCounter>{roll.amount}</AmountCounter>
+                <Counter>+</Counter>
+              </CounterRollsWrapper>
+              <PriceRoll>{findRoll.price}</PriceRoll>
+              <ImageCancel src={CloseButton} alt={'close button'}></ImageCancel>
+            </Line>
+          );
+        })}
+      </AllWrapper>
     </>
   );
 }
