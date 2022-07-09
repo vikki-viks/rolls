@@ -75,3 +75,14 @@ RollsInfo.belongsTo(Rolls);
 
 Rolls.hasMany(RollsAmount);
 RollsAmount.belongsTo(Rolls);
+
+module.exports = {
+  User,
+  Basket,
+  BasketRolls,
+  Rolls,
+  Type,
+  Rating,
+  RollsInfo,
+  RollsAmount,
+};
