@@ -23,7 +23,7 @@ const Rolls = sequelize.define("roll", {
   img: { type: DataTypes.STRING, allowNull: false },
 });
 
-const Type = sequelize.define("roll", {
+const Type = sequelize.define("type", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING, unique: true, allowNull: false },
 });
