@@ -41,7 +41,14 @@ class RollsController {
     }
     return res.json(rolls);
   }
-  async getOne(req, res) {}
+  async getOne(req, res) {
+    const { id } = req.params;
+    const rolls = await Rolls.findOne({
+      where: { id },
+      include: [{ model: RollsInfo, as: "info" }],
+    });
+    return res.json(rolls);
+  }
 }
 
 module.exports = new RollsController();
