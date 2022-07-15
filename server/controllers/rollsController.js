@@ -1,7 +1,9 @@
 const uuid = require("uuid");
 const path = require("path");
-const { Rolls, RollsInfo } = require("../models/models");
+const { Rolls, RollsInfo, RollsAmount } = require("../models/models");
 const ApiError = require("../error/ApiError");
+const mapper = require("../utils/mapper");
+const { model } = require("../db");
 class RollsController {
   async create(req, res, next) {
     try {
@@ -35,11 +37,17 @@ class RollsController {
     let offset = page * limit - limit;
     let rolls;
     if (!typeId) {
-      rolls = await Rolls.findAndCountAll({ limit, offset });
+      rolls = await Rolls.findAndCountAll({
+        limit,
+        offset,
+        include: [{ model: RollsAmount }],
+      });
     } else {
       rolls = await Rolls.findAndCountAll({ where: { typeId }, limit, offset });
     }
-    return res.json(rolls);
+    console.log(JSON.stringify(rolls, null, 2));
+    const mappedRolls = mapper(rolls);
+    return res.json(mappedRolls);
   }
   async getOne(req, res) {
     const { id } = req.params;

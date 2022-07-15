@@ -1,8 +1,9 @@
 const Router = require("express");
 const router = new Router();
 const rollController = require("../controllers/rollsController");
+const checkMiddleware = require("../middleware/CheckRoleMiddleware");
 
-router.post("/", rollController.create);
+router.post("/", checkMiddleware("ADMIN"), rollController.create);
 router.get("/", rollController.getAll);
 router.get("/:id", rollController.getOne);
 

@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import axios from 'axios';
+import styled from "styled-components";
+import axios from "axios";
 
-import { Header } from './components/Header';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import React from 'react';
-import { Home } from './pages/Home';
-import { Cart } from './pages/Cart';
-import Modal from 'react-modal';
+import { Header } from "./components/Header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
+import { Home } from "./pages/Home";
+import { Cart } from "./pages/Cart";
+import Modal from "react-modal";
 
 const MainWrapper = styled.div`
   width: 80%;
@@ -14,17 +14,17 @@ const MainWrapper = styled.div`
   margin-bottom: 40px;
 `;
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 function App() {
   const [data, setData] = React.useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = React.useState(0);
-  const [selectedSortStatus, setSelectedSortStatus] = React.useState('rating');
+  const [selectedSortStatus, setSelectedSortStatus] = React.useState("rating");
   const [rollsId, setRollsId] = React.useState([]);
 
   React.useEffect(() => {
     axios
-      .get('http://localhost:3000/db.json')
+      .get("http://localhost:3000/db.json")
       .then(({ data }) => setData(data.rolls));
   }, []);
 
