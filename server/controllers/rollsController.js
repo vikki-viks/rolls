@@ -3,27 +3,23 @@ const path = require("path");
 const { Rolls, RollsInfo, RollsAmount } = require("../models/models");
 const ApiError = require("../error/ApiError");
 const mapper = require("../utils/mapper");
-const { model } = require("../db");
+const rollsService = require("../services/rollsService");
+
 class RollsController {
   async create(req, res, next) {
     try {
       let { name, typeId, info } = req.body;
-      console.log("here");
       const { img } = req.files;
       let fileName = uuid.v4() + ".jpg";
       img.mv(path.resolve(__dirname, "..", "static", fileName));
-      const rolls = await Rolls.create({ name, typeId, img: fileName });
 
-      if (info) {
-        info = JSON.parse(info);
-        info.forEach((i) => {
-          RollsInfo.create({
-            title: i.title,
-            description: i.description,
-            rollsId: rolls.id,
-          });
-        });
-      }
+      const rolls = await rollsService.create({
+        name,
+        typeId,
+        info: info ? JSON.parse(info) : undefined,
+        img: fileName,
+      });
+
       return res.json(rolls);
     } catch (e) {
       console.log(e);
