@@ -25,6 +25,19 @@ class UserService {
     const token = generateJwt(user.id, user.email, user.role);
     return token;
   }
+
+  async logic({ email, password }) {
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      throw ApiError.internal("Пользователь не найден");
+    }
+    let comparePassword = bcrypt.compareSync(password, user.password);
+    if (!comparePassword) {
+      throw ApiError.internal("Указан неверный пароль");
+    }
+    const token = generateJwt(user.id, user.email, user.role);
+    return token;
+  }
 }
 
 module.exports = new UserService();
