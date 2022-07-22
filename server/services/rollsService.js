@@ -1,4 +1,5 @@
-const { Rolls, RollsInfo } = require("../models/models");
+const { Rolls, RollsInfo, RollsAmount } = require("../models/models");
+const mapper = require("../utils/mapper");
 
 class RollsService {
   async create({ name, typeId, info, img }) {
@@ -16,6 +17,30 @@ class RollsService {
       });
     });
 
+    return rolls;
+  }
+  async getAll({ limit, typeId, page }) {
+    page = page || 1;
+    limit = limit || 9;
+    let offset = page * limit - limit;
+    let rolls;
+    if (!typeId) {
+      rolls = await Rolls.findAndCountAll({
+        limit,
+        offset,
+        include: [{ model: RollsAmount }],
+      });
+    } else {
+      rolls = await Rolls.findAndCountAll({ where: { typeId }, limit, offset });
+    }
+    const mappedRolls = mapper(rolls);
+    return mappedRolls;
+  }
+  async getOne({ id }) {
+    const rolls = await Rolls.findOne({
+      where: { id },
+      include: [{ model: RollsInfo, as: "info" }],
+    });
     return rolls;
   }
 }

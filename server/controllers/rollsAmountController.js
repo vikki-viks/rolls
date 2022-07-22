@@ -1,6 +1,4 @@
-const { RollsAmount } = require("../models/models");
 const ApiError = require("../error/ApiError");
-const { model } = require("../db");
 const rollsAmountService = require("../services/rollsAmountService");
 
 class RollsAmountController {
