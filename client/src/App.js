@@ -24,7 +24,7 @@ function App() {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:3000/db.json")
+      .get("http://localhost:3001/api/rolls/")
       .then(({ data }) => setData(data.rolls));
   }, []);
 

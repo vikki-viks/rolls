@@ -24,8 +24,10 @@ class RollsController {
       next(ApiError.badRequest(e.message));
     }
   }
+
   async getAll(req, res) {
     let { typeId, limit, page } = req.query;
+    console.log("work2");
     const mappedRolls = await rollsService.getAll({
       typeId,
       limit,
@@ -33,6 +35,7 @@ class RollsController {
     });
     return res.json(mappedRolls);
   }
+
   async getOne(req, res) {
     const { id } = req.params;
     const rolls = await rollsService.getOne({
