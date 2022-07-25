@@ -5,6 +5,7 @@ function mapper(obj) {
         id: el.id,
         rating: el.rating,
         name: el.name,
+        imageUrl: "http://localhost:3001/" + el.img,
       };
     }),
   };

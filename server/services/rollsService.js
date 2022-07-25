@@ -33,7 +33,7 @@ class RollsService {
     } else {
       rolls = await Rolls.findAndCountAll({ where: { typeId }, limit, offset });
     }
-    console.log("work");
+    console.log(JSON.stringify(rolls, null, 2));
     const mappedRolls = mapper(rolls);
     return mappedRolls;
   }
