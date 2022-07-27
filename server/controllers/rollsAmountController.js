@@ -4,7 +4,7 @@ const rollsAmountService = require("../services/rollsAmountService");
 class RollsAmountController {
   async create(req, res, next) {
     try {
-      let { id, amount, price } = req.body;
+      const { id, amount, price } = req.body;
       const rollsAmount = await rollsAmountService.create({
         id,
         amount,

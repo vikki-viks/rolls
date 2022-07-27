@@ -6,9 +6,9 @@ const rollsService = require("../services/rollsService");
 class RollsController {
   async create(req, res, next) {
     try {
-      let { name, typeId, info } = req.body;
+      const { name, typeId, info } = req.body;
       const { img } = req.files;
-      let fileName = uuid.v4() + ".jpg";
+      const fileName = uuid.v4() + ".jpg";
       img.mv(path.resolve(__dirname, "..", "static", fileName));
 
       const rolls = await rollsService.create({
@@ -26,8 +26,7 @@ class RollsController {
   }
 
   async getAll(req, res) {
-    let { typeId, limit, page } = req.query;
-    console.log("work2");
+    const { typeId, limit, page } = req.query;
     const mappedRolls = await rollsService.getAll({
       typeId,
       limit,

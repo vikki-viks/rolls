@@ -22,7 +22,7 @@ class RollsService {
   async getAll({ limit, typeId, page }) {
     page = page || 1;
     limit = limit || 9;
-    let offset = page * limit - limit;
+    const offset = page * limit - limit;
     let rolls;
     if (!typeId) {
       rolls = await Rolls.findAndCountAll({

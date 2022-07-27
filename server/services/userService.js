@@ -31,7 +31,7 @@ class UserService {
     if (!user) {
       throw ApiError.internal("Пользователь не найден");
     }
-    let comparePassword = bcrypt.compareSync(password, user.password);
+    const comparePassword = bcrypt.compareSync(password, user.password);
     if (!comparePassword) {
       throw ApiError.internal("Указан неверный пароль");
     }
