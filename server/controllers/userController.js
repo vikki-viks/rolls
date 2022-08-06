@@ -26,7 +26,7 @@ class UserController {
     const { email, password } = req.body;
 
     try {
-      const token = await userService.logic({
+      const token = await userService.login({
         email,
         password,
       });

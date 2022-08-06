@@ -26,7 +26,7 @@ class UserService {
     return token;
   }
 
-  async logic({ email, password }) {
+  async login({ email, password }) {
     const user = await User.findOne({ where: { email } });
     if (!user) {
       throw ApiError.internal("Пользователь не найден");
